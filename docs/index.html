@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Industrial Engineering &amp; Robotics Calculators + OEM Fault Code Directory</title>
+<meta name="description" content="Instant searchable directory of 35+ free zero-login industrial calculators, ASME/IEC standards charts, VFD and robot alarm recovery checklists from EngiTech.in and RoboticsEngineering.in.">
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--ink:#111827;--muted:#4b5563;--brand:#0b63f3;--border:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}h1{font-size:1.85rem;margin:0 0 8px}p.lead{color:var(--muted);margin:0 0 16px;max-width:740px}
+#q{width:100%;padding:12px 14px;font-size:1rem;border:1px solid #cbd5e1;border-radius:10px;background:#fff}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
+.tab{padding:7px 13px;border:1px solid var(--border);background:#fff;border-radius:999px;cursor:pointer;font-size:.9rem}
+.tab.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px;display:flex;flex-direction:column;justify-content:space-between}
+.badge{display:inline-block;font-size:.74rem;font-weight:600;padding:2px 8px;border-radius:6px;background:#eff6ff;color:#1d4ed8;margin-bottom:8px}
+.card h2{font-size:1.02rem;margin:0 0 6px}
+.card p{font-size:.88rem;color:var(--muted);margin:0 0 10px}
+.card a{color:var(--brand);text-decoration:none;font-weight:600;font-size:.9rem}
+.card a:hover{text-decoration:underline}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--border);font-size:.88rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Free Industrial &amp; Robotics Engineering Calculators + OEM Fault Directory</h1>
+  <p class="lead">Zero-login dual-unit (SI Metric &amp; US Imperial) sizing calculators, ASME/IEC/ISO charts, and step-by-step VFD, PLC, robot alarm, and ROS 2 troubleshooting checklists maintained by <a href="https://engitech.in/">EngiTech.in</a> and <a href="https://roboticsengineering.in/">RoboticsEngineering.in</a>.</p>
+  <input id="q" type="search" placeholder="Filter by fault code, standard, or tool (e.g. F30001, SRVO-062, PT100, Cv, ROS 2, TMC2209)..." aria-label="Search tools and fault codes">
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-cat="all">All</button>
+    <button class="tab" data-cat="vfd">VFD Faults</button>
+    <button class="tab" data-cat="process">Process &amp; Piping</button>
+    <button class="tab" data-cat="robot">Robot Alarms</button>
+    <button class="tab" data-cat="ros">ROS 2 &amp; Embedded</button>
+  </div>
+</header>
+<div class="grid" id="grid"></div>
+<footer>
+  Open-source datasets &amp; Python CLI: <a href="https://github.com/Jignesh257/industrial-vfd-fault-codes-and-engineering-tables">VFD &amp; Plant Tables</a> &middot;
+  <a href="https://github.com/Jignesh257/industrial-robot-fault-codes-and-ros2-reference">Robot Alarms &amp; ROS 2</a> &middot;
+  <a href="https://github.com/Jignesh257/plc-and-ros2-field-diagnostics-cli">PLC &amp; ROS 2 CLI</a> &middot;
+  Built by <a href="https://jaadudigital.com/">Jaadu Digital</a>.
+</footer>
+</div>
+<script>
+const ITEMS=[
+  {c:"vfd",b:"Siemens SINAMICS",t:"F30001 & F07801 Overcurrent Checklist",d:"r0949 sub-code capture, 1000 V DC megger limits, p1200 Flying Restart.",u:"https://engitech.in/siemens-sinamics-f30001-f07801-overcurrent-fix/"},
+  {c:"vfd",b:"ABB Drives",t:"ACS580 / ACS880 Fault 2330 & 2310 Fix",d:"Earth leakage capacitance limits past 75 m, EMC screw on IT grids, parameter 31.20.",u:"https://engitech.in/abb-acs580-acs880-2330-earth-leakage-2310-overcurrent-fix/"},
+  {c:"vfd",b:"Danfoss VLT",t:"FC302 Alarm A13 & A14 Reset Guide",d:"AMA tuning 1-29, ramp-up 3-41, switching frequency 14-01, winding resistance spread.",u:"https://engitech.in/danfoss-vlt-fc302-alarm-a13-a14-overcurrent-earth-fault-fix/"},
+  {c:"vfd",b:"Delta VFD",t:"MS300 & C2000 ocA, GFF, ovd Fault Fix",d:"Pr.01-12/13 ramps, Pr.06-01 stall prevention, 800 V DC bus trip checks.",u:"https://engitech.in/delta-vfd-ms300-c2000-oca-gff-ovd-fault-fix/"},
+  {c:"vfd",b:"Schneider Altivar",t:"ATV320 / ATV630 OCF, SCF1 & OBF Recovery",d:"brA decel adaptation, tUn auto-tune, 820 V DC overbraking resistor checks.",u:"https://engitech.in/schneider-altivar-atv320-atv630-ocf-scf1-obf-fault-fix/"},
+  {c:"vfd",b:"Yaskawa",t:"V1000 / A1000 / GA700 oC, GF, ov, oL2 Fix",d:"C1-01/02 ramps, L3-04 stall prevention, C6-02 carrier frequency, U2 fault trace.",u:"https://engitech.in/yaskawa-v1000-a1000-ga700-oc-gf-ov-ol2-fault-fix/"},
+  {c:"vfd",b:"Multi-Brand Tool",t:"Interactive VFD Fault Code Troubleshooter",d:"Search 55+ alarm codes across ABB, Siemens, Danfoss, Delta, Schneider & Yaskawa.",u:"https://engitech.in/vfd-fault-code-troubleshooter/"},
+  {c:"process",b:"Instrumentation",t:"4-20 mA Loop Faults (NAMUR NE43)",d:"Diagnose 0 mA, 3.8 mA & 21.5 mA faults, 250-ohm shunt test & loop headroom.",u:"https://engitech.in/4-20ma-loop-fault-0ma-3-8ma-21-5ma-namur-ne43-troubleshooting/"},
+  {c:"process",b:"Instrumentation",t:"PT100 3-Wire vs 4-Wire Lead Error Fix",d:"IEC 60751 0.385 ohm/C lead error math, oxidized terminal drift & Kelvin checks.",u:"https://engitech.in/pt100-rtd-3-wire-vs-4-wire-lead-resistance-error-fix/"},
+  {c:"process",b:"Pumps & Seals",t:"Mechanical Seal Failures & API Plan 11 vs 53A",d:"Dry running, SiC heat checking, runout <= 0.05 mm & barrier pressure margins.",u:"https://engitech.in/mechanical-seal-failure-modes-dry-running-api-plan-11-53a/"},
+  {c:"process",b:"Piping & Flanges",t:"ASME B16.5 Flange Bolt Torque & PCC-1 Pattern",d:"30/60/100% star passes, nut-factor K anti-seize trap & spiral-wound gasket stops.",u:"https://engitech.in/asme-b16-5-flange-bolt-tightening-star-pattern-torque-guide/"},
+  {c:"process",b:"Calculators",t:"69 Free Industrial Engineering Calculators",d:"Pump power, control valve Cv/Kv, boiler efficiency, AWG voltage drop, steam tables.",u:"https://engitech.in/engineering-tools/"},
+  {c:"robot",b:"FANUC",t:"SRVO-062 BZAL & SRVO-075 Quick Master Fix",d:"Hot-swap 6 V D-cell battery, RES_PCA, axis rotation & witness mark verification.",u:"https://roboticsengineering.in/fanuc-srvo-062-bzal-srvo-075-pulse-not-established-reset/"},
+  {c:"robot",b:"FANUC",t:"SRVO-050 Collision & SRVO-023 Stop Error",d:"Payload schedule inertia checks, 24 V brake slip & disturbance torque tuning.",u:"https://roboticsengineering.in/fanuc-srvo-050-collision-detect-srvo-023-stop-error-excess-fix/"},
+  {c:"robot",b:"ABB Robotics",t:"IRC5 / OmniCore 50204 Motion Supervision",d:"LoadIdentify tooldata, MotionSup tuning limits & dress-pack snag diagnostics.",u:"https://roboticsengineering.in/abb-irc5-omnicore-50204-motion-supervision-triggered-fix/"},
+  {c:"robot",b:"ABB Robotics",t:"IRC5 10036 SMB Battery & Rev Counter Update",d:"SMB battery swap, physical sync marks, memory reconciliation & TCP check.",u:"https://roboticsengineering.in/abb-irc5-10036-smb-battery-lost-revolution-counter-update/"},
+  {c:"robot",b:"KUKA",t:"KRC4 / KRC5 KSS01133 & KSS01422 Mastering Fix",d:"$LOAD determination, 24 V brake check, EMD mastering with load offset.",u:"https://roboticsengineering.in/kuka-krc4-krc5-kss01133-gear-torque-kss01422-mastering-fix/"},
+  {c:"robot",b:"Yaskawa Motoman",t:"4107 ABSO, 4315 Collision & 4414 Tracking",d:"ER6V battery hot-swap, Home Position marks, Tool File & Servo Monitor torque.",u:"https://roboticsengineering.in/yaskawa-motoman-alarm-4107-abso-4315-collision-4414-tracking-fix/"},
+  {c:"robot",b:"Universal Robots",t:"C204 Path Sanity & C74 48V PSU Fault Fix",d:"Base aviation pins, 48 V rail on Energy Eater board, dump resistor & tool I/O.",u:"https://roboticsengineering.in/universal-robots-c204-path-sanity-c74-48v-psu-fault-fix/"},
+  {c:"robot",b:"Multi-OEM Tool",t:"Industrial Robot Fault Code Finder (50+ Codes)",d:"Instant lookup across FANUC, ABB, KUKA, Yaskawa Motoman & Universal Robots.",u:"https://roboticsengineering.in/industrial-robot-fault-code-finder/"},
+  {c:"ros",b:"ROS 2",t:"TF2 Extrapolation Into Past / Future Fix",d:"view_frames, use_sim_time mismatch, chrony <20 ms skew & Nav2 transform_tolerance.",u:"https://roboticsengineering.in/ros2-tf2-extrapolation-into-past-future-error-fix/"},
+  {c:"ros",b:"ROS 2",t:"ros2_control Controller Manager Load/Activate Fix",d:"URDF joint mismatches, command interface conflicts & Jazzy YAML wildcards.",u:"https://roboticsengineering.in/ros2-control-controller-manager-failed-to-load-activate-fix/"},
+  {c:"ros",b:"Embedded / Stepper",t:"TMC2209 UART, Overtemp & StallGuard Fix",d:"1 k-ohm PDN_UART resistor, Vref/RMS math, OTPW 120 C & TCOOLTHRS speed floor.",u:"https://roboticsengineering.in/tmc2209-uart-communication-error-overtemp-stallguard-fix/"},
+  {c:"ros",b:"Robotics Tools",t:"PID Oscilloscope, Cobot ROI & Safety Calculators",d:"Ziegler-Nichols/Tyreus-Luyben tuner, ISO/TS 15066 force calc & LiPo SOC charts.",u:"https://roboticsengineering.in/tools/"}
+];
+let cat="all";
+const grid=document.getElementById("grid"),q=document.getElementById("q");
+function render(){
+  const s=q.value.trim().toLowerCase();
+  const list=ITEMS.filter(x=>(cat==="all"||x.c===cat)&&(!s||(x.b+" "+x.t+" "+x.d).toLowerCase().includes(s)));
+  grid.innerHTML=list.map(x=>`<article class="card"><div><span class="badge">${x.b}</span><h2>${x.t}</h2><p>${x.d}</p></div><a href="${x.u}" target="_blank" rel="noopener">Open free guide / tool &rarr;</a></article>`).join("");
+}
+document.getElementById("tabs").addEventListener("click",e=>{
+  if(!e.target.dataset.cat)return;
+  cat=e.target.dataset.cat;
+  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+  render();
+});
+q.addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
