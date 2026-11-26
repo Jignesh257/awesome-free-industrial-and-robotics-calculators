@@ -52,6 +52,11 @@ Unplanned cell stops cost `$400` to `$2,500` per hour on factory floors. Keep di
 - [industrial-robot-fault-codes-and-ros2-reference](https://github.com/Jignesh257/industrial-robot-fault-codes-and-ros2-reference)
 - [plc-and-ros2-field-diagnostics-cli](https://github.com/Jignesh257/plc-and-ros2-field-diagnostics-cli)
 
+## Contribute Technical Articles
+
+- Publish industrial engineering guides on [EngiTech.in Write for Us](https://engitech.in/write-for-us/)
+- Publish robotics and ROS 2 guides on [RoboticsEngineering.in Write for Us](https://roboticsengineering.in/write-for-us/)
+
 ## License
 
 MIT License.
